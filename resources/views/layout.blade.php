@@ -14,7 +14,7 @@
                 <img src="{{ asset('logo.svg') }}" alt="Logo Explo du Monde" class="max-h-16">
             </a>
         </header>
-        <div class="bg-blue-950 h-0.5 delay-300 duration-1000" x-data="{ shown: false }" x-intersect="shown = true" :class="shown ? 'w-full' : 'w-0'"></div>
+        <div class="bg-blue-950 h-0.5 delay-300 duration-1000" x-data="{ shown: false }" x-intersect="shown = true" x-bind:class="shown ? 'w-full' : 'w-0'"></div>
         <main>
             @yield('content')
         </main>
