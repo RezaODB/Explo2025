@@ -9,7 +9,7 @@
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
     <body class="p-4 bg-slate-900 text-slate-900">
-        <div class="bg-slate-50 py-4">
+        <div class="bg-slate-50 max-w-[1440px] mx-auto py-4">
             <header class="grid grid-cols-[auto_2fr_1fr] gap-4 px-4">
                 <a href="{{ route('home') }}"><img src="{{ asset('logo_sideway.svg') }}" class="min-w-[180px]" alt="Logo Explo du Monde"></a>
                 <div class="relative">
