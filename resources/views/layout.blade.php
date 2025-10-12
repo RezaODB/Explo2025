@@ -14,7 +14,7 @@
                 <a href="{{ route('home') }}"><img src="{{ asset('logo_sideway.svg') }}" class="min-w-[180px]" alt="Logo Explo du Monde"></a>
                 <div class="relative">
                     <video src="{{ asset('teaser2025.mp4') }}" muted loop autoplay class="h-full w-full object-cover"></video>
-                    <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="absolute inset-4 flex items-center justify-center">
                         <img src="{{ asset('logo75.svg') }}" class="mix-blend-overlay">
                     </div>
                 </div>

@@ -8,8 +8,8 @@
     </h1>
     <div class="grid grid-cols-3 divide-x-2 divide-slate-800">
         @foreach ($films->where('cycle', 'grand')->take(3) as $film)
-        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4">
-            <h2 class="text-2xl font-light leading-tight uppercase">{{ $film->title }}</h2>
+        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 group">
+            <h2 class="text-2xl font-light leading-tight uppercase group-hover:underline">{{ $film->title }}</h2>
             <div class="space-y-2">
                 <div class="flex items-baseline gap-1">
                     <div class="text-sm size-6 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-white">G</div>
@@ -24,8 +24,8 @@
     <div class="bg-slate-800 h-0.5 mx-4"></div>
     <div class="grid grid-cols-3 divide-x-2 divide-slate-800">
         @foreach ($films->where('cycle', 'grand')->skip(3)->take(3) as $film)
-        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 {{ $loop->last && $loop->iteration !== 3 ? 'border-r-2 border-slate-900' : '' }}">
-            <h2 class="text-2xl font-light leading-tight uppercase">{{ $film->title }}</h2>
+        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 group {{ $loop->last && $loop->iteration !== 3 ? 'border-r-2 border-slate-900' : '' }}">
+            <h2 class="text-2xl font-light leading-tight uppercase group-hover:underline">{{ $film->title }}</h2>
             <div class="space-y-2">
                 <div class="flex items-baseline gap-1">
                     <div class="text-sm size-6 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-white">G</div>
@@ -41,8 +41,8 @@
     @if ($films->where('cycle', 'grand')->count() > 6)
     <div class="grid grid-cols-3 divide-x-2 divide-slate-800">
         @foreach ($films->where('cycle', 'grand')->skip(6)->take(3) as $film)
-        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 {{ $loop->last && $loop->iteration !== 3 ? 'border-r-2 border-slate-900' : '' }}">
-            <h2 class="text-2xl font-light leading-tight uppercase">{{ $film->title }}</h2>
+        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 group {{ $loop->last && $loop->iteration !== 3 ? 'border-r-2 border-slate-900' : '' }}">
+            <h2 class="text-2xl font-light leading-tight uppercase group-hover:underline">{{ $film->title }}</h2>
             <div class="space-y-2">
                 <div class="flex items-baseline gap-1">
                     <div class="text-sm size-6 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-white">G</div>
@@ -65,8 +65,8 @@
     </h1>
     <div class="grid grid-cols-3 divide-x-2 divide-slate-800">
         @foreach ($films->where('cycle', 'découverte')->take(3) as $film)
-        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4">
-            <h2 class="text-2xl font-light leading-tight uppercase">{{ $film->title }}</h2>
+        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 group">
+            <h2 class="text-2xl font-light leading-tight uppercase group-hover:underline">{{ $film->title }}</h2>
             <div class="space-y-2">
                 <div class="flex items-baseline gap-1">
                     <div class="text-sm size-6 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-white">D</div>
@@ -81,8 +81,8 @@
     <div class="bg-slate-800 h-0.5 mx-4"></div>
     <div class="grid grid-cols-3 divide-x-2 divide-slate-800">
         @foreach ($films->where('cycle', 'découverte')->skip(3)->take(3) as $film)
-        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 {{ $loop->last && $loop->iteration !== 3 ? 'border-r-2 border-slate-900' : '' }}">
-            <h2 class="text-2xl font-light leading-tight uppercase">{{ $film->title }}</h2>
+        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 group {{ $loop->last && $loop->iteration !== 3 ? 'border-r-2 border-slate-900' : '' }}">
+            <h2 class="text-2xl font-light leading-tight uppercase group-hover:underline">{{ $film->title }}</h2>
             <div class="space-y-2">
                 <div class="flex items-baseline gap-1">
                     <div class="text-sm size-6 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-white">D</div>
@@ -98,8 +98,8 @@
     @if ($films->where('cycle', 'découverte')->count() > 6)
     <div class="grid grid-cols-3 divide-x-2 divide-slate-800">
         @foreach ($films->where('cycle', 'découverte')->skip(6)->take(3) as $film)
-        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 {{ $loop->last && $loop->iteration !== 3 ? 'border-r-2 border-slate-900' : '' }}">
-            <h2 class="text-2xl font-light leading-tight uppercase">{{ $film->title }}</h2>
+        <a href="" class="flex flex-col gap-4 min-h-96 justify-between px-4 group {{ $loop->last && $loop->iteration !== 3 ? 'border-r-2 border-slate-900' : '' }}">
+            <h2 class="text-2xl font-light leading-tight uppercase group-hover:underline">{{ $film->title }}</h2>
             <div class="space-y-2">
                 <div class="flex items-baseline gap-1">
                     <div class="text-sm size-6 shrink-0 rounded-full bg-slate-900 flex items-center justify-center text-white">D</div>
