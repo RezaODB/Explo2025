@@ -8,16 +8,25 @@
         <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
-    <body class="max-w-7xl mx-auto sm:my-4 text-blue-950 bg-blue-50">
-        <header class="p-4">
-            <a href="{{ route('home') }}" class="inline-block">
-                <img src="{{ asset('logo.svg') }}" alt="Logo Explo du Monde" class="max-h-16">
-            </a>
-        </header>
-        <div class="bg-blue-950 h-0.5 delay-300 duration-1000" x-data="{ shown: false }" x-intersect="shown = true" x-bind:class="shown ? 'w-full' : 'w-0'"></div>
-        <main>
-            @yield('content')
-        </main>
-        <footer></footer>
+    <body class="p-4 bg-slate-900 text-slate-900">
+        <div class="bg-slate-50 py-4">
+            <header class="grid grid-cols-[auto_2fr_1fr] gap-4 px-4">
+                <a href="{{ route('home') }}"><img src="{{ asset('logo_sideway.svg') }}" class="min-w-[180px]" alt="Logo Explo du Monde"></a>
+                <div class="relative">
+                    <video src="{{ asset('teaser2025.mp4') }}" muted loop autoplay class="h-full w-full object-cover"></video>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <img src="{{ asset('logo75.svg') }}" class="mix-blend-overlay">
+                    </div>
+                </div>
+                <div class="space-y-4 self-end">
+                    <h1 class="text-6xl font-black leading-[0.8] uppercase italic">Saison 2025 / 2026</h1>
+                    <p class="text-slate-500 font-medium pr-4">Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.</p>
+                </div>
+            </header>
+            <main>
+                @yield('content')
+            </main>
+            <footer></footer>
+        </div>
     </body>
 </html>
