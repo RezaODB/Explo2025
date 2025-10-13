@@ -11,7 +11,7 @@ class PageController extends Controller
         $response = Http::get('https://explorationdumonde.be/api/films/2025');
 
         return view('home', [
-            'films' => collect($response->object())
+            'films' => collect($response->object()),
         ]);   
     }
 }
