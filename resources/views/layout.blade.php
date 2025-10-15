@@ -6,25 +6,13 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="p-4 bg-sky-950 text-sky-950">
-        <div class="bg-sky-50 max-w-[1440px] mx-auto py-4">
-            <header class="grid grid-cols-[auto_2fr_1fr] gap-4 px-4">
-                <a href="{{ route('home') }}"><img src="{{ asset('logo_sideway.svg') }}" class="min-w-[180px]" alt="Logo Explo du Monde"></a>
-                <div class="relative">
-                    <video src="{{ asset('teaser2025.mp4') }}" muted loop autoplay class="h-full w-full object-cover"></video>
-                    <div class="absolute inset-4 flex items-center justify-center">
-                        <img src="{{ asset('logo75.svg') }}" class="mix-blend-overlay">
-                    </div>
-                </div>
-                <div class="space-y-4 self-end">
-                    <h1 class="text-7xl font-black uppercase">Saison 2025/2026</h1>
-                    <p class="text-sky-800 font-medium pr-4">Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.</p>
-                </div>
-            </header>
-            <main>
-                @yield('content')
-            </main>
-            <footer></footer>
-        </div>
+    <body class="max-w-[1440px] mx-auto p-4 space-y-4 text-slate-900">
+        <header class="bg-slate-200 p-4">
+            <a href="{{ route('home') }}"><img src="{{ asset('logo.svg') }}" class="max-w-3xs" alt="Logo Explo du Monde"></a>
+        </header>
+        <main>
+            @yield('content')
+        </main>
+        <footer></footer>
     </body>
 </html>
