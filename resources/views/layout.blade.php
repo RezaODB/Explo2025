@@ -6,7 +6,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="max-w-[1440px] mx-auto p-4 space-y-4 text-slate-900">
+    <body class="max-w-7xl mx-auto p-4 space-y-4 text-slate-900">
         <header class="bg-slate-200 p-4">
             <a href="{{ route('home') }}"><img src="{{ asset('logo.svg') }}" class="max-w-3xs" alt="Logo Explo du Monde"></a>
         </header>
