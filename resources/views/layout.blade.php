@@ -34,6 +34,6 @@
         <main>
             @yield('content')
         </main>
-        <footer></footer>
+        <footer class="py-96"></footer>
     </body>
 </html>
