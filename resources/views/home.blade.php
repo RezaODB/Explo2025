@@ -81,7 +81,7 @@
             </div>
             <div class="pr-4">
                 <h2 class="text-2xl font-bold uppercase group-hover:underline">{{ $film->title }}</h2>
-                <h3>De <span class="bg-pink-200 italic">{{ $film->real }}</span></h3>
+                <h3>De <span class="bg-pink-200">{{ $film->real }}</span></h3>
                 <p class="mt-4 leading-relaxed text-sm">{{ $film->intro }}</p>
             </div>
         </a>
