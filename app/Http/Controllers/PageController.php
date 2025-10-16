@@ -8,11 +8,11 @@ class PageController extends Controller
 {
     public function index()
     {
-        $films = Http::get('https://explorationdumonde.be/api/films/2025');
+        // $films = Http::get('https://explorationdumonde.be/api/films/2025');
         $agendas = Http::get('https://explorationdumonde.be/api/agendas');
 
         return view('home', [
-            'films' => collect($films->object()),
+            // 'films' => collect($films->object()),
             'agendas' => collect($agendas->object()),
         ]);   
     }
