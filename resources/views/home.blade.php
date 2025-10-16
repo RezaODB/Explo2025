@@ -50,7 +50,7 @@
         @foreach ($agendas->take(6) as $agenda)
         <a href="">
             <img src="https://explorationdumonde.be/storage/{{ $agenda->film->banner }}" alt="{{ $agenda->film->title }}">
-            <h2 class="text-2xl font-bold uppercase mt-4">{{ $agenda->film->title }}</h2>
+            <h2 class="text-xl font-bold uppercase mt-4">{{ $agenda->film->title }}</h2>
             <div class="space-y-2 mt-4 text-sm">
                 <div class="flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>
@@ -73,13 +73,17 @@
 {{-- GRAND CYCLE --}}
 <section class="max-w-7xl mx-auto px-4 mt-24">
     <h1 class="font-bold text-5xl border-b-4 pb-4">Le Grand Cycle</h1>
-    <div class="grid grid-cols-3 gap-4 mt-8">
+    <div class="mt-8 space-y-4">
         @foreach ($films->where('cycle', 'grand') as $film)
-        <a href="" class="{{ $loop->first ? 'col-span-2' : '' }}">
-            <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" alt="{{ $film->title }}">
-            <h2 class="text-2xl font-bold uppercase mt-4">{{ $film->title }}</h2>
-            <h3>De <span class="bg-pink-200 italic">{{ $film->real }}</span></h3>
-            <p class="text-sm mt-4 leading-relaxed text-stone-600">{{ $film->intro }}</p>
+        <a href="" class="grid grid-cols-[50%_50%] gap-4 group {{ $loop->first ? 'col-span-2' : '' }}">
+            <div>
+                <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" class="w-full h-full object-cover" alt="{{ $film->title }}">
+            </div>
+            <div class="pr-4">
+                <h2 class="text-2xl font-bold uppercase group-hover:underline">{{ $film->title }}</h2>
+                <h3>De <span class="bg-pink-200 italic">{{ $film->real }}</span></h3>
+                <p class="mt-4 leading-relaxed text-sm">{{ $film->intro }}</p>
+            </div>
         </a>
         @endforeach
     </div>
