@@ -5,10 +5,7 @@
 <section class="grid grid-cols-[36%_64%]">
     <div class="flex flex-col justify-end gap-4 p-8 bg-stone-900">
         <h1 class="text-[5vw] leading-none font-bold text-stone-50">Saison 2025/2026</h1>
-        <p class="leading-relaxed text-stone-100">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="float-left size-13 text-stone-400"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 8l-4 -4l-4 4" /><path d="M12 20v-16" /><path d="M18 18c-4 -1.333 -6 -4.667 -6 -10" /><path d="M6 18c4 -1.333 6 -4.667 6 -10" /></svg>
-            Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.
-        </p>
+        <p class="leading-relaxed text-stone-100">Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.</p>
     </div>
     <div>
         <video src="{{ asset('teaser2025.mp4') }}" class="w-full h-full aspect-video object-cover" muted autoplay loop></video>
