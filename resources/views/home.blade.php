@@ -3,7 +3,7 @@
 
 {{-- HERO --}}
 <section class="grid grid-cols-[40%_60%] border-b">
-    <div class="flex flex-col justify-end items-center gap-4 p-8 bg-stone-900">
+    <div class="flex flex-col justify-end gap-4 p-8 bg-stone-900">
         <h1 class="text-[5vw] leading-none font-black text-stone-50">Saison 2025/2026</h1>
         <p class="leading-relaxed text-stone-100">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="float-left size-13 text-stone-400"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 8l-4 -4l-4 4" /><path d="M12 20v-16" /><path d="M18 18c-4 -1.333 -6 -4.667 -6 -10" /><path d="M6 18c4 -1.333 6 -4.667 6 -10" /></svg>
@@ -11,7 +11,7 @@
         </p>
     </div>
     <div>
-        <video src="{{ asset('teaser2025.mp4') }}" class="w-full h-full object-cover" muted autoplay loop></video>
+        <video src="{{ asset('teaser2025.mp4') }}" class="w-full h-full aspect-video object-cover" muted autoplay loop></video>
     </div>
 </section> 
 
@@ -49,7 +49,7 @@
 {{-- NEXT FILMS --}}
 <section class="max-w-7xl mx-auto px-4 mt-20">
     <h1 class="font-black text-5xl flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 size-12 text-stone-400"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7l4 -4l4 4" /><path d="M12 3v5.394a6.737 6.737 0 0 1 -3 5.606a6.737 6.737 0 0 0 -3 5.606v1.394" /><path d="M12 3v5.394a6.737 6.737 0 0 0 3 5.606a6.737 6.737 0 0 1 3 5.606v1.394" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 size-12"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7l4 -4l4 4" /><path d="M12 3v5.394a6.737 6.737 0 0 1 -3 5.606a6.737 6.737 0 0 0 -3 5.606v1.394" /><path d="M12 3v5.394a6.737 6.737 0 0 0 3 5.606a6.737 6.737 0 0 1 3 5.606v1.394" /></svg>
         Prochains films à l'affiche
     </h1>
     <div class="grid grid-cols-2 gap-4 mt-8 border-y py-4">
@@ -77,5 +77,27 @@
         @endforeach
     </div>
 </section>
+
+{{-- GRAND CYCLE --}}
+<section class="grid grid-cols-[60%_40%] border-y mt-20">
+    <a href="" class="relative">
+        <img src="https://explorationdumonde.be/storage/{{ $films->first()->banner }}" class="object-cover aspect-video w-full h-full" alt="{{ $films->first()->title }}">
+        <h2 class="text-2xl font-bold absolute bottom-4 left-4 text-white">{{ $films->first()->title }}</h2>
+    </a>
+    <div class="flex flex-col justify-end gap-4 p-8 bg-stone-200">
+        <h1 class="text-[5vw] leading-none font-black max-w-sm">Le Grand Cycle</h1>
+        <p class="leading-relaxed">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="float-left size-13 "><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 8l-4 -4l-4 4" /><path d="M12 20v-16" /><path d="M18 18c-4 -1.333 -6 -4.667 -6 -10" /><path d="M6 18c4 -1.333 6 -4.667 6 -10" /></svg>
+            Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.
+        </p>
+    </div>
+</section>
+
+    {{-- @foreach ($films->where('cycle', 'grand') as $film)
+    <a href="">
+        <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" class="object-cover w-full h-96" alt="{{ $film->title }}">
+        <h2 class="text-xl font-bold">{{ $film->title }}</h2>
+    </a>
+    @endforeach --}}
 
 @endsection
