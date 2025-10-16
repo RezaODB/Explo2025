@@ -14,4 +14,13 @@ class PageController extends Controller
             'films' => collect($response->object()),
         ]);   
     }
+    
+    public function films()
+    {
+        $response = Http::get('https://explorationdumonde.be/api/films/2025');
+
+        return view('films', [
+            'films' => collect($response->object()),
+        ]);   
+    }
 }
