@@ -2,9 +2,9 @@
 @section('content')
 
 {{-- HERO --}}
-<section class="grid grid-cols-[40%_60%] border-b">
+<section class="grid grid-cols-[36%_64%] border-b">
     <div class="flex flex-col justify-end gap-4 p-8 bg-stone-900">
-        <h1 class="text-[5vw] leading-none font-black text-stone-50">Saison 2025/2026</h1>
+        <h1 class="text-[5vw] leading-none font-bold text-stone-50">Saison 2025/2026</h1>
         <p class="leading-relaxed text-stone-100">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="float-left size-13 text-stone-400"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 8l-4 -4l-4 4" /><path d="M12 20v-16" /><path d="M18 18c-4 -1.333 -6 -4.667 -6 -10" /><path d="M6 18c4 -1.333 6 -4.667 6 -10" /></svg>
             Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.
@@ -47,13 +47,10 @@
 </section>
 
 {{-- NEXT FILMS --}}
-<section class="max-w-7xl mx-auto px-4 mt-20">
-    <h1 class="font-black text-5xl flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 size-12"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7l4 -4l4 4" /><path d="M12 3v5.394a6.737 6.737 0 0 1 -3 5.606a6.737 6.737 0 0 0 -3 5.606v1.394" /><path d="M12 3v5.394a6.737 6.737 0 0 0 3 5.606a6.737 6.737 0 0 1 3 5.606v1.394" /></svg>
-        Prochains films à l'affiche
-    </h1>
-    <div class="grid grid-cols-2 gap-4 border-b py-8">
-        @foreach ($agendas->take(2) as $agenda)
+<section class="max-w-7xl mx-auto px-4 mt-24">
+    <h1 class="font-bold text-5xl">Prochains films à l'affiche</h1>
+    <div class="grid grid-cols-3 gap-4 mt-8">
+        @foreach ($agendas->take(6) as $agenda)
         <a href="">
             <img src="https://explorationdumonde.be/storage/{{ $agenda->film->banner }}" alt="{{ $agenda->film->title }}">
             <h2 class="text-2xl font-bold uppercase mt-4">{{ $agenda->film->title }}</h2>
@@ -75,51 +72,20 @@
         </a>
         @endforeach
     </div>
-    <div class="grid grid-cols-4 gap-4 divide-x border-b py-8">
-        @foreach ($agendas->skip(2)->take(4) as $agenda)
-        <a href="" class="pr-4">
-            <h2 class="text-2xl font-bold uppercase">{{ $agenda->film->title }}</h2>
-            <h3>De {{ $agenda->film->real }}</h3>
-            <div class="space-y-2 mt-4 text-sm">
-                <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>
-                    <span class="bg-yellow-200 font-bold">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('D MMMM Y') }}</span> à {{ $agenda->time }}
-                </div>
-                <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l6 -3l6 3l6 -3v13l-6 3l-6 -3l-6 3v-13" /><path d="M9 4v13" /><path d="M15 7v13" /></svg>
-                    {{ $agenda->city . ' | ' . $agenda->venue . ' | ' . $agenda->address }}
-                </div>
-                <div class="flex gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" /><path d="M12 9h.01" /><path d="M11 12h1v4h1" /></svg>
-                    {!! $agenda->info !!}
-                </div>
-            </div>
-        </a>
-        @endforeach
-    </div>
 </section>
 
 {{-- GRAND CYCLE --}}
-<section class="grid grid-cols-[60%_40%] border-y mt-20">
-    <a href="" class="relative">
-        <img src="https://explorationdumonde.be/storage/{{ $films->where('cycle', 'grand')->first()->banner }}" class="object-cover aspect-video w-full h-full" alt="{{ $films->where('cycle', 'grand')->first()->title }}">
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/50"></div>
-        <h2 class="text-2xl font-bold absolute bottom-4 left-4 text-white">{{ $films->where('cycle', 'grand')->first()->title }}</h2>
-    </a>
-    <div class="flex flex-col justify-end gap-4 p-8 bg-stone-200">
-        <h1 class="text-[5vw] leading-none font-black">Le Grand Cycle</h1>
-        <p class="leading-relaxed text-stone-600">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="float-left size-13 text-stone-900"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7l4 -4l4 4" /><path d="M18 21v.01" /><path d="M18 18.01v.01" /><path d="M17 15.02v.01" /><path d="M14 13.03v.01" /><path d="M12 3v5.394a6.737 6.737 0 0 1 -3 5.606a6.737 6.737 0 0 0 -3 5.606v1.394" /></svg>
-            Le Grand Cycle, c'est la rencontre avec les grands voyageurs, ceux qui ont pris le temps d'explorer le monde en profondeur. Des films puissants, des récits vécus, des témoignages qui nous rappellent la beauté et la fragilité de notre planète. Une expérience immersive où chaque projection devient un moment de partage et d'émerveillement.
-        </p>
+{{-- <section>
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-3 gap-4 mt-24">
+        @foreach ($films->where('cycle', 'grand') as $film)
+        <a href="">
+            <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" alt="{{ $film->title }}">
+            <h2 class="text-2xl font-bold uppercase mt-4">{{ $film->title }}</h2>
+            <h3>De {{ $film->real }}</h3>
+            <p class="text-sm mt-4 leading-relaxed text-stone-600">{{ $film->intro }}</p>
+        </a>
+        @endforeach
     </div>
-</section>
-
-    {{-- @foreach ($films->where('cycle', 'grand') as $film)
-    <a href="">
-        <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" class="object-cover w-full h-96" alt="{{ $film->title }}">
-        <h2 class="text-xl font-bold">{{ $film->title }}</h2>
-    </a>
-    @endforeach --}}
+</section> --}}
 
 @endsection
