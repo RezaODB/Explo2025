@@ -2,11 +2,11 @@
 @section('content')
 
 {{-- HERO --}}
-<section class="grid grid-cols-[36%_64%] border-b">
+<section class="grid grid-cols-[36%_64%]">
     <div class="flex flex-col justify-end gap-4 p-8 bg-stone-900">
         <h1 class="text-[5vw] leading-none font-bold text-stone-50">Saison 2025/2026</h1>
         <p class="leading-relaxed text-stone-100">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="float-left size-13 text-stone-400"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 8l-4 -4l-4 4" /><path d="M12 20v-16" /><path d="M18 18c-4 -1.333 -6 -4.667 -6 -10" /><path d="M6 18c4 -1.333 6 -4.667 6 -10" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="float-left size-13 text-stone-400"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M16 8l-4 -4l-4 4" /><path d="M12 20v-16" /><path d="M18 18c-4 -1.333 -6 -4.667 -6 -10" /><path d="M6 18c4 -1.333 6 -4.667 6 -10" /></svg>
             Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.
         </p>
     </div>
@@ -48,17 +48,16 @@
 
 {{-- NEXT FILMS --}}
 <section class="max-w-7xl mx-auto px-4 mt-24">
-    <h1 class="font-bold text-5xl">Prochains films à l'affiche</h1>
+    <h1 class="font-bold text-5xl border-b-4 pb-4">Prochains films à l'affiche</h1>
     <div class="grid grid-cols-3 gap-4 mt-8">
         @foreach ($agendas->take(6) as $agenda)
         <a href="">
             <img src="https://explorationdumonde.be/storage/{{ $agenda->film->banner }}" alt="{{ $agenda->film->title }}">
             <h2 class="text-2xl font-bold uppercase mt-4">{{ $agenda->film->title }}</h2>
-            <h3>De {{ $agenda->film->real }}</h3>
             <div class="space-y-2 mt-4 text-sm">
                 <div class="flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3" /><path d="M16 3v4" /><path d="M8 3v4" /><path d="M4 11h10" /><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M18 16.5v1.5l.5 .5" /></svg>
-                    <span class="bg-yellow-200 font-bold">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('D MMMM Y') }}</span> à {{ $agenda->time }}
+                    <span class="bg-green-200 font-bold">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('D MMMM Y') }}</span> à {{ $agenda->time }}
                 </div>
                 <div class="flex gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 7l6 -3l6 3l6 -3v13l-6 3l-6 -3l-6 3v-13" /><path d="M9 4v13" /><path d="M15 7v13" /></svg>
@@ -75,17 +74,18 @@
 </section>
 
 {{-- GRAND CYCLE --}}
-{{-- <section>
-    <div class="max-w-7xl mx-auto px-4 grid grid-cols-3 gap-4 mt-24">
+<section class="max-w-7xl mx-auto px-4 mt-24">
+    <h1 class="font-bold text-5xl border-b-4 pb-4">Le Grand Cycle</h1>
+    <div class="grid grid-cols-3 gap-4 mt-8">
         @foreach ($films->where('cycle', 'grand') as $film)
-        <a href="">
+        <a href="" class="{{ $loop->first ? 'col-span-2' : '' }}">
             <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" alt="{{ $film->title }}">
             <h2 class="text-2xl font-bold uppercase mt-4">{{ $film->title }}</h2>
-            <h3>De {{ $film->real }}</h3>
+            <h3>De <span class="bg-pink-200 italic">{{ $film->real }}</span></h3>
             <p class="text-sm mt-4 leading-relaxed text-stone-600">{{ $film->intro }}</p>
         </a>
         @endforeach
     </div>
-</section> --}}
+</section>
 
 @endsection
