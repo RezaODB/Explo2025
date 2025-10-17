@@ -48,24 +48,24 @@
     <h1 class="font-bold text-5xl border-b-4 pb-4">Prochains films à l'affiche</h1>
     <div class="grid grid-cols-3 gap-4 mt-8">
         @foreach ($agendas->take(6) as $agenda)
-        <a href="">
+        <div>
             <img src="https://explorationdumonde.be/storage/{{ $agenda->film->banner }}" class="aspect-video w-full object-cover" alt="{{ $agenda->film->title }}">
-            <h2 class="text-xl font-bold uppercase mt-4">{{ $agenda->film->title }}</h2>
-            <div class="space-y-2 mt-4 text-sm">
-                <div class="flex gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-                    <span class="bg-green-200 font-bold">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('D MMMM Y') }}</span> à {{ $agenda->time }}
+            <a href="" class="block text-xl mt-4 font-bold uppercase hover:underline">{{ $agenda->film->title }}</a>
+            <div class="text-sm mt-1"><span class="bg-green-200">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('D MMMM') }}</span> à {{ $agenda->time }}</div>
+            <div class="text-sm mt-2" x-data="{ open: false }">
+                <div x-on:click="open = !open" class="cursor-pointer group flex items-center gap-1">
+                    {{ $agenda->city . ' | ' . $agenda->venue . ' | ' }}
+                    <span class="group-hover:bg-stone-100">TICKETS</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 duration-300" x-bind:class="open ? 'rotate-180' : ''"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
                 </div>
-                <div class="flex gap-2">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-                    {{ $agenda->city . ' | ' . $agenda->venue . ' | ' . $agenda->address }}
-                </div>
-                <div class="flex gap-2">
-                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 5l0 14" /><path d="M5 12l14 0" /></svg>
-                    {!! $agenda->info !!}
+                <div x-show="open" x-collapse>
+                    <div class="p-4 mt-2 bg-stone-100 space-y-2">
+                        <div>{!! $agenda->info !!}</div>
+                        <div class="uppercase">{{ $agenda->address }}</div>
+                    </div>
                 </div>
             </div>
-        </a>
+        </div>
         @endforeach
     </div>
 </section>
