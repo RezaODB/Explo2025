@@ -8,7 +8,7 @@
             <video src="{{ asset('teaser2025.mp4') }}" loop muted autoplay class="w-full h-full object-cover rounded-lg"></video>
         </div>
         <div class="flex flex-col gap-8 justify-end bg-sky-100 rounded-lg p-8">
-            <h1 class="text-[7vw] leading-[0.9] tracking-tight">Saison 2025/2026</h1>
+            <h1 class="text-[clamp(4rem,7vw,7vw)] leading-[0.9] tracking-tight">Saison 2025/2026</h1>
             <div>
                 <img src="{{ asset('75ans.svg') }}" class="max-h-10 float-left mt-2 mr-4" alt="Logo 75 ans">
                 <p class="max-w-xl leading-relaxed">Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.</p>
@@ -50,7 +50,7 @@
 
 {{-- NEXT --}}
 <section class="mt-16 space-y-8 max-w-[1440px] mx-auto px-4">
-    <h1 class="text-5xl sm:text-7xl border-b-4 border-stone-900">Prochaines séances</h1>
+    <h1 class="text-4xl sm:text-7xl border-b-4 border-stone-900">Prochaines séances</h1>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         @foreach ($agendas->take(6) as $agenda)
         <div>
@@ -74,7 +74,7 @@
         @foreach ($films->where('cycle', 'grand') as $film)
         @if ($loop->first)
         <div class="sm:col-span-2 bg-pink-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
-            <h1 class="text-[7vw] leading-[0.9] tracking-tight">Le Grand Cycle</h1>
+            <h1 class="text-[clamp(4rem,7vw,7vw)] leading-[0.9] tracking-tight">Le Grand Cycle</h1>
             <p class="leading-relaxed max-w-xl">Le Grand Cycle, c'est la rencontre avec les grands voyageurs, ceux qui ont pris le temps d'explorer le monde en profondeur. Des films puissants, des récits vécus, des témoignages qui nous rappellent la beauté et la fragilité de notre planète. Une expérience immersive où chaque projection devient un moment de partage et d'émerveillement.</p>
         </div>
         @else
@@ -96,7 +96,7 @@
         @foreach ($films->where('cycle', 'découverte') as $film)
         @if ($loop->first)
         <div class="col-span-full bg-blue-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
-            <h1 class="text-[7vw] leading-[0.9] tracking-tight">Le Cycle Découverte</h1>
+            <h1 class="text-[clamp(4rem,7vw,7vw)] leading-[0.9] tracking-tight">Le Cycle Découverte</h1>
             <p class="leading-relaxed max-w-xl">Le Cycle Découverte ouvre la porte à de nouvelles voix, de nouveaux regards sur le monde. Des explorateurs d'aujourd'hui, curieux, engagés, qui racontent leur époque et leurs chemins singuliers. Des histoires courtes mais intenses, pour éveiller la curiosité et donner envie d'aller plus loin.</p>
         </div>
         @else
