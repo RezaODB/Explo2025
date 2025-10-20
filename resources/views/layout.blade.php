@@ -8,7 +8,7 @@
         <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
-    <body class="text-stone-900 space-y-4">
+    <body class="text-stone-900">
         <header class="border-b border-stone-900 pt-4 sticky top-0 bg-white z-10">
             <div class="flex flex-wrap gap-4 items-baseline justify-between max-w-[1440px] mx-auto px-4">
                 <a href="{{ route('home') }}">
@@ -22,7 +22,7 @@
                 </nav>
             </div>
         </header>
-        <main class="space-y-4">
+        <main>
             @yield('content')
         </main>
         <footer class="border-t pt-16 pb-4 mt-16">

@@ -2,19 +2,17 @@
 @section('content')
 
 {{-- HERO --}}
-<section class="max-w-[1440px] mx-auto px-4">
-    <div class="flex flex-wrap lg:flex-nowrap border border-stone-900 bg-stone-900 gap-px">
-        <div>
-            <video src="{{ asset('teaser2025.mp4') }}" loop muted autoplay class="w-full h-full object-cover rounded-lg"></video>
+<section class="flex flex-wrap lg:flex-nowrap bg-stone-900 gap-px">
+    <div>
+        <video src="{{ asset('teaser2025.mp4') }}" loop muted autoplay class="w-full h-full object-cover rounded-lg"></video>
+    </div>
+    <div class="flex flex-col gap-8 justify-end bg-sky-100 rounded-lg p-8" x-data="{ shown: false }" x-intersect="shown = true">
+        <div class="overflow-hidden">
+            <h1 class="text-[clamp(3.5rem,7vw,7vw)] leading-[0.9] tracking-tight duration-1000 delay-300" x-bind:class="shown ? 'translate-y-none' : '-translate-y-full'">Saison 2025/2026</h1>
         </div>
-        <div class="flex flex-col gap-8 justify-end bg-sky-100 rounded-lg p-8" x-data="{ shown: false }" x-intersect="shown = true">
-            <div class="overflow-hidden">
-                <h1 class="text-[clamp(3.5rem,7vw,7vw)] leading-[0.9] tracking-tight duration-1000 delay-300" x-bind:class="shown ? 'translate-y-none' : '-translate-y-full'">Saison 2025/2026</h1>
-            </div>
-            <div>
-                <img src="{{ asset('75ans.svg') }}" class="max-h-10 float-left mt-2 mr-4" alt="Logo 75 ans">
-                <p class="max-w-xl leading-relaxed">Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.</p>
-            </div>
+        <div>
+            <img src="{{ asset('75ans.svg') }}" class="max-h-10 float-left mt-2 mr-4" alt="Logo 75 ans">
+            <p class="max-w-xl leading-relaxed">Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.</p>
         </div>
     </div>
 </section>
@@ -95,7 +93,7 @@
 </section>
 
 {{-- DISCOVERY CYCLE --}}
-<section class="space-y-8 max-w-[1440px] mx-auto px-4">
+<section class="mt-16 space-y-8 max-w-[1440px] mx-auto px-4">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px border border-stone-900 bg-stone-900">
         @foreach ($films->where('cycle', 'découverte') as $film)
         @if ($loop->first)
