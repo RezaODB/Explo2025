@@ -3,7 +3,7 @@
 
 {{-- HERO --}}
 <section class="max-w-[1440px] mx-auto px-4">
-    <div class="flex border border-stone-900 bg-stone-900 gap-px">
+    <div class="flex flex-wrap lg:flex-nowrap border border-stone-900 bg-stone-900 gap-px">
         <div>
             <video src="{{ asset('teaser2025.mp4') }}" loop muted autoplay class="w-full h-full object-cover rounded-lg"></video>
         </div>
@@ -19,7 +19,7 @@
 
 {{-- SEARCH --}}
 <section class="border-y border-stone-900 py-4">
-    <div class="flex justify-between gap-4 divide-x divide-stone-900 divide-dotted max-w-[1440px] mx-auto px-4">
+    <div class="flex flex-col sm:flex-row justify-between gap-4 sm:divide-x divide-stone-900 divide-dotted max-w-[1440px] mx-auto px-4">
         <div class="cursor-pointer w-full pr-4" x-data="{ open: false }" x-on:click="open = !open">
             <label for="film" class="text-sm text-stone-500 uppercase block">Films</label>
             <div class="flex items-center justify-between mt-2">
@@ -41,7 +41,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-500 duration-300" x-bind:class="open ? 'rotate-180' : 'rotate-0'"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
             </div>
         </div>
-        <button class="bg-stone-900 rounded text-white flex items-center gap-2 px-8 py-4 text-sm">
+        <button class="bg-stone-900 rounded text-white flex items-center justify-center gap-2 px-8 py-4 text-sm">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
             Rechercher
         </button>
@@ -51,15 +51,15 @@
 {{-- NEXT --}}
 <section class="mt-16 space-y-8 max-w-[1440px] mx-auto px-4">
     <h1 class="text-7xl border-b-4 border-stone-900">Prochaines séances</h1>
-    <div class="grid grid-cols-5 gap-4">
-        @foreach ($agendas->take(5) as $agenda)
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        @foreach ($agendas->take(6) as $agenda)
         <div>
             <div class="border-b border-stone-900 pb-1">
                 <span class="text-5xl">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('DD') }}</span>
                 <span>{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('MMM') }} à </span>  
                 <span class="text-xl">{{ $agenda->time }}</span>
             </div>
-            <a href="" class="text-xl mt-2 hover:underline block">{{ $agenda->film->title }}</a>
+            <a href="" class="text-lg mt-2 hover:underline block font-black">{{ $agenda->film->title }}</a>
             <div class="text-sm mt-2"><span class="bg-green-200">{{ $agenda->city }}</span>{{ ' | ' . $agenda->venue . ' | ' . $agenda->address }}</div>
             <div class="mt-2 border-b border-dotted border-stone-900 pb-1 text-sm">TICKETS: </div>
             <div class="text-sm mt-1">{!! $agenda->info !!}</div>
@@ -70,18 +70,20 @@
 
 {{-- GRAND CYCLE --}}
 <section class="mt-16 space-y-8 max-w-[1440px] mx-auto px-4">
-    <div class="grid grid-cols-4 gap-px border border-stone-900 bg-stone-900">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px border border-stone-900 bg-stone-900">
         @foreach ($films->where('cycle', 'grand') as $film)
         @if ($loop->first)
-        <div class="col-span-2 bg-pink-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
+        <div class="sm:col-span-2 bg-pink-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
             <h1 class="text-[7vw] leading-[0.9] tracking-tight">Le Grand Cycle</h1>
             <p class="leading-relaxed max-w-xl">Le Grand Cycle, c'est la rencontre avec les grands voyageurs, ceux qui ont pris le temps d'explorer le monde en profondeur. Des films puissants, des récits vécus, des témoignages qui nous rappellent la beauté et la fragilité de notre planète. Une expérience immersive où chaque projection devient un moment de partage et d'émerveillement.</p>
         </div>
         @else
         <a href="" class="bg-white space-y-4 p-8 rounded-lg group">
-            <h2 class="text-2xl group-hover:underline font-bold tracking-tight">{{ $film->title }}</h2>
-            <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" class="rounded w-full h-64 object-cover" alt="{{ $film->title }}">
+            <div class="border rounded-full px-2 py-1 inline-block text-sm">{{ $film->real }}</div>
+            <h2 class="text-2xl group-hover:underline font-black tracking-tight">{{ $film->title }}</h2>
+            <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" class="w-full h-96 object-cover" alt="{{ $film->title }}">
             <p class="text-sm leading-relaxed">{{ $film->intro }}</p>
+            <div class="underline font-bold">En savoir plus</div>
         </a>
         @endif
         @endforeach
@@ -90,7 +92,7 @@
 
 {{-- DISCOVERY CYCLE --}}
 <section class="space-y-8 max-w-[1440px] mx-auto px-4">
-    <div class="grid grid-cols-4 gap-px border border-stone-900 bg-stone-900">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px border border-stone-900 bg-stone-900">
         @foreach ($films->where('cycle', 'découverte') as $film)
         @if ($loop->first)
         <div class="col-span-full bg-blue-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
@@ -99,9 +101,11 @@
         </div>
         @else
         <a href="" class="bg-white space-y-4 p-8 rounded-lg group">
-            <h2 class="text-2xl group-hover:underline font-bold tracking-tight">{{ $film->title }}</h2>
-            <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" class="rounded w-full h-64 object-cover" alt="{{ $film->title }}">
+            <div class="border rounded-full px-2 py-1 inline-block text-sm">{{ $film->real }}</div>
+            <h2 class="text-2xl group-hover:underline font-black tracking-tight">{{ $film->title }}</h2>
+            <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" class="w-full h-96 object-cover" alt="{{ $film->title }}">
             <p class="text-sm leading-relaxed">{{ $film->intro }}</p>
+            <div class="underline font-bold">En savoir plus</div>
         </a>
         @endif
         @endforeach

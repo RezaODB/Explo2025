@@ -9,11 +9,11 @@
     </head>
     <body class="text-stone-900 space-y-4">
         <header class="border-b border-stone-900 pt-4 sticky top-0 bg-white z-10">
-            <div class="flex gap-4 items-baseline justify-between max-w-[1440px] mx-auto px-4">
+            <div class="flex flex-wrap gap-4 items-baseline justify-between max-w-[1440px] mx-auto px-4">
                 <a href="{{ route('home') }}">
                     <img src="{{ asset('logo.svg') }}" class="max-h-16" alt="Logo Exploration du Monde">
                 </a>
-                <nav class="flex gap-8 items-center">
+                <nav class="flex gap-8 items-center font-bold">
                     <a href="{{ route('home') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('/') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">Home</a>
                     <a href="{{ route('films') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('films') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">Films</a>
                     <a href="{{ route('agenda') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('agenda') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">Agenda</a>
@@ -24,6 +24,12 @@
         <main class="space-y-4">
             @yield('content')
         </main>
-        <footer class="py-96"></footer>
+        <footer class="border-t pt-16 pb-4 mt-16">
+            <div class="max-w-[1440px] mx-auto px-4">
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('logo.svg') }}" class="max-h-24" alt="Logo Exploration du Monde">
+                </a>
+            </div>
+        </footer>
     </body>
 </html>
