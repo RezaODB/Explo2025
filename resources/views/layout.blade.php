@@ -5,22 +5,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ config('app.name', 'Laravel') }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
-        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     </head>
-    <body class="text-stone-900">
-        <header class="border-b">
-            <nav class="max-w-7xl mx-auto p-4 flex items-end justify-between gap-12 uppercase font-bold">
-                <img src="{{ asset('logo.svg') }}" class="h-20" alt="Logo Exploration du Monde">
-                <div class="flex gap-12 items-center">
-                    <a href="{{ route('home') }}">Home</a>
-                    <a href="{{ route('films') }}" class="{{ request()->is('films') ? 'bg-pink-200' : 'hover:bg-pink-200' }}">Les films</a>
-                    <a href="{{ route('home') }}" class="{{ request()->is('agenda') ? 'bg-green-200' : 'hover:bg-green-200' }}">Agenda</a>
-                    <a href="{{ route('home') }}" class="{{ request()->is('about') ? 'bg-cyan-200' : 'hover:bg-cyan-200' }}">À propos</a>
-                </div>
-            </nav>
+    <body class="text-stone-900 max-w-[1440px] mx-auto px-4 space-y-4">
+        <header class="border-b border-stone-900 pt-4">
+            <div class="flex gap-4 items-baseline justify-between">
+                <a href="{{ route('home') }}">
+                    <img src="{{ asset('logo.svg') }}" class="max-h-16" alt="Logo Exploration du Monde">
+                </a>
+                <nav class="flex gap-8 items-center">
+                    <a href="{{ route('home') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('/') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">Home</a>
+                    <a href="{{ route('films') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('films') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">Films</a>
+                    <a href="{{ route('agenda') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('agenda') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">Agenda</a>
+                    <a href="{{ route('about') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('about') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">À propos</a>
+                </nav>
+            </div>
         </header>
-        <main>
+        <main class="space-y-4">
             @yield('content')
         </main>
         <footer class="py-96"></footer>
