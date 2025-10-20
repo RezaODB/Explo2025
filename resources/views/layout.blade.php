@@ -11,9 +11,9 @@
         <header class="border-b border-stone-900 pt-4 sticky top-0 bg-white z-10">
             <div class="flex flex-wrap gap-4 items-baseline justify-between max-w-[1440px] mx-auto px-4">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('logo.svg') }}" class="max-h-16" alt="Logo Exploration du Monde">
+                    <img src="{{ asset('logo.svg') }}" class="max-h-12 sm:max-h-16" alt="Logo Exploration du Monde">
                 </a>
-                <nav class="flex gap-8 items-center font-bold">
+                <nav class="flex gap-8 items-center font-bold text-sm sm:text-base">
                     <a href="{{ route('home') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('/') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">Home</a>
                     <a href="{{ route('films') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('films') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">Films</a>
                     <a href="{{ route('agenda') }}" class="px-2 border-b-4 pb-2 duration-300 {{ request()->is('agenda') ? 'border-stone-900' : 'border-transparent hover:border-stone-900' }}">Agenda</a>
