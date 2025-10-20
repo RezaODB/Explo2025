@@ -50,7 +50,7 @@
 
 {{-- NEXT --}}
 <section class="mt-16 space-y-8 max-w-[1440px] mx-auto px-4">
-    <h1 class="text-7xl border-b-4 border-stone-900">Prochaines séances</h1>
+    <h1 class="text-5xl sm:text-7xl border-b-4 border-stone-900">Prochaines séances</h1>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         @foreach ($agendas->take(6) as $agenda)
         <div>
