@@ -2,40 +2,40 @@
 @section('content')
 
 {{-- HERO --}}
-<section class="flex gap-4">
+<section class="flex bg-stone-900 border gap-px">
     <div>
-        <video src="{{ asset('teaser2025.mp4') }}" loop muted autoplay class="w-full h-full object-cover rounded"></video>
+        <video src="{{ asset('teaser2025.mp4') }}" loop muted autoplay class="w-full h-full object-cover rounded-lg"></video>
     </div>
-    <div class="flex flex-col gap-8 justify-end">
-        <h1 class="text-[7vw] leading-[0.8] tracking-tight">Saison 2025/2026</h1>
+    <div class="flex flex-col gap-8 justify-end bg-blue-100 rounded-lg p-8">
+        <h1 class="text-[7vw] leading-[0.9] tracking-tight">Saison 2025/2026</h1>
         <div>
             <img src="{{ asset('75ans.svg') }}" class="max-h-10 float-left mt-2 mr-4" alt="Logo 75 ans">
-            <p class="max-w-xl text-stone-600 leading-relaxed text-sm">Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.</p>
+            <p class="max-w-xl leading-relaxed">Le monde se découvre autrement quand il se raconte. Depuis 75 ans, Exploration du Monde fait voyager les esprits à travers les récits, les images et les émotions de celles et ceux qui partent à la rencontre de notre planète. Une invitation à voir plus loin, à écouter autrement, à renouer avec l'art du voyage humain.</p>
         </div>
     </div>
 </section>
 
 {{-- SEARCH --}}
-<section class="border-y border-stone-900 py-4 flex justify-between gap-4 divide-x divide-stone-900">
+<section class="border-y border-stone-900 py-4 flex justify-between gap-4 divide-x divide-stone-900 divide-dotted">
     <div class="cursor-pointer w-full pr-4" x-data="{ open: false }" x-on:click="open = !open">
-        <label for="film" class="text-sm text-stone-400 uppercase block">Films</label>
+        <label for="film" class="text-sm text-stone-500 uppercase block">Films</label>
         <div class="flex items-center justify-between mt-2">
             <span>Tous</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-400 duration-300" x-bind:class="open ? 'rotate-180' : 'rotate-0'"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-500 duration-300" x-bind:class="open ? 'rotate-180' : 'rotate-0'"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
         </div>
     </div>
     <div class="cursor-pointer w-full pr-4" x-data="{ open: false }" x-on:click="open = !open">
-        <label for="ville" class="text-sm text-stone-400 uppercase block">Villes</label>
+        <label for="ville" class="text-sm text-stone-500 uppercase block">Villes</label>
         <div class="flex items-center justify-between mt-2">
             <span>Toutes</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-400 duration-300" x-bind:class="open ? 'rotate-180' : 'rotate-0'"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-500 duration-300" x-bind:class="open ? 'rotate-180' : 'rotate-0'"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
         </div>
     </div>
     <div class="cursor-pointer w-full pr-4" x-data="{ open: false }" x-on:click="open = !open">
-        <label for="date" class="text-sm text-stone-400 uppercase block">Dates</label>
+        <label for="date" class="text-sm text-stone-500 uppercase block">Dates</label>
         <div class="flex items-center justify-between mt-2">
             <span>Toutes</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-400 duration-300" x-bind:class="open ? 'rotate-180' : 'rotate-0'"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-500 duration-300" x-bind:class="open ? 'rotate-180' : 'rotate-0'"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
         </div>
     </div>
     <button class="bg-stone-900 rounded text-white flex items-center gap-2 px-8 py-4 text-sm">
@@ -44,6 +44,44 @@
     </button>
 </section>
 
+{{-- NEXT --}}
+<section class="mt-16 space-y-8">
+    <h1 class="text-7xl border-b-4 border-stone-900">Prochaines séances</h1>
+    <div class="grid grid-cols-5 gap-4">
+        @foreach ($agendas->take(5) as $agenda)
+        <div>
+            <div class="border-b border-stone-900 pb-1">
+                <span class="text-5xl">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('DD') }}</span>
+                <span>{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('MMM') }} à </span>  
+                <span class="text-xl">{{ $agenda->time }}</span>
+            </div>
+            <a href="" class="text-xl mt-2 hover:underline block">{{ $agenda->film->title }}</a>
+            <div class="text-sm mt-2"><span class="bg-green-200">{{ $agenda->city }}</span>{{ ' | ' . $agenda->venue . ' | ' . $agenda->address }}</div>
+            <div class="mt-2 border-b border-dotted border-stone-900 pb-1 text-sm">TICKETS: </div>
+            <div class="text-sm mt-1">{!! $agenda->info !!}</div>
+        </div>
+        @endforeach
+    </div>
+</section>
 
+{{-- GRAND CYCLE --}}
+<section class="mt-16 space-y-8">
+    <div class="grid grid-cols-4 gap-px border border-stone-900 bg-stone-900">
+        @foreach ($films->where('cycle', 'grand') as $film)
+        @if ($loop->first)
+        <div class="col-span-2 bg-pink-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
+            <h1 class="text-[7vw] leading-[0.9] tracking-tight">Le Grand Cycle</h1>
+            <p class="leading-relaxed max-w-xl">Le Grand Cycle, c'est la rencontre avec les grands voyageurs, ceux qui ont pris le temps d'explorer le monde en profondeur. Des films puissants, des récits vécus, des témoignages qui nous rappellent la beauté et la fragilité de notre planète. Une expérience immersive où chaque projection devient un moment de partage et d'émerveillement.</p>
+        </div>
+        @else
+        <a href="" class="bg-white space-y-4 p-8 rounded-lg group">
+            <h2 class="text-2xl group-hover:underline font-bold tracking-tight">{{ $film->title }}</h2>
+            <img src="https://explorationdumonde.be/storage/{{ $film->banner }}" class="rounded w-full h-64 object-cover" alt="{{ $film->title }}">
+            <p class="text-sm leading-relaxed">{{ $film->intro }}</p>
+        </a>
+        @endif
+        @endforeach
+    </div>
+</section>
 
 @endsection
