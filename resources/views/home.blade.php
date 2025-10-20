@@ -6,7 +6,7 @@
     <div>
         <video src="{{ asset('teaser2025.mp4') }}" loop muted autoplay class="w-full h-full object-cover rounded-lg"></video>
     </div>
-    <div class="flex flex-col gap-8 justify-end bg-sky-100 rounded-lg p-8" x-data="{ shown: false }" x-intersect="shown = true">
+    <div class="flex flex-col gap-8 justify-end bg-cyan-100 rounded-lg p-8" x-data="{ shown: false }" x-intersect="shown = true">
         <div class="overflow-hidden">
             <h1 class="text-[clamp(3.5rem,7vw,7vw)] leading-[0.9] tracking-tight duration-1000 delay-300" x-bind:class="shown ? 'translate-y-none' : '-translate-y-full'">Saison 2025/2026</h1>
         </div>
@@ -96,7 +96,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-px border border-stone-900 bg-stone-900">
         @foreach ($films->where('cycle', 'découverte') as $film)
         @if ($loop->first)
-        <div class="col-span-full bg-blue-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
+        <div class="col-span-full bg-sky-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
             <div class="overflow-hidden" x-data="{ shown: false }" x-intersect="shown = true">
                 <h1 class="text-[clamp(3.5rem,7vw,7vw)] leading-[0.9] tracking-tight duration-1000 delay-300 py-2" x-bind:class="shown ? 'translate-y-none' : '-translate-y-full'">Le Cycle Découverte</h1>
             </div>
