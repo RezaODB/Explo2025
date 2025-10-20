@@ -50,14 +50,13 @@
 
 {{-- NEXT --}}
 <section class="mt-16 space-y-8 max-w-[1440px] mx-auto px-4">
-    <h1 class="text-4xl sm:text-7xl border-b-4 border-stone-900">Prochaines séances</h1>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        @foreach ($agendas->take(6) as $agenda)
+    <h1 class="text-4xl sm:text-6xl border-b-4 border-stone-900">Prochaines séances</h1>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        @foreach ($agendas->take(8) as $agenda)
         <div>
             <div class="border-b border-stone-900 pb-1">
                 <span class="text-5xl">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('DD') }}</span>
-                <span>{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('MMM') }} à </span>  
-                <span class="text-xl">{{ $agenda->time }}</span>
+                <span class="text-xl">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('MMM') }} à {{ $agenda->time }}</span>  
             </div>
             <a href="" class="text-lg mt-2 hover:underline block font-black">{{ $agenda->film->title }}</a>
             <div class="text-sm mt-2"><span class="bg-green-200">{{ $agenda->city }}</span>{{ ' | ' . $agenda->venue . ' | ' . $agenda->address }}</div>
@@ -75,7 +74,7 @@
         @if ($loop->first)
         <div class="sm:col-span-2 bg-pink-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
             <div class="overflow-hidden" x-data="{ shown: false }" x-intersect="shown = true">
-                <h1 class="text-[clamp(3.5rem,7vw,7vw)] leading-[0.9] tracking-tight duration-1000 delay-300" x-bind:class="shown ? 'translate-y-none' : '-translate-y-full'">Le Grand Cycle</h1>
+                <h1 class="text-[clamp(3.5rem,7vw,7vw)] leading-[0.9] tracking-tight duration-1000 delay-300 py-2" x-bind:class="shown ? 'translate-y-none' : '-translate-y-full'">Le Grand Cycle</h1>
             </div>
             <p class="leading-relaxed max-w-xl">Le Grand Cycle, c'est la rencontre avec les grands voyageurs, ceux qui ont pris le temps d'explorer le monde en profondeur. Des films puissants, des récits vécus, des témoignages qui nous rappellent la beauté et la fragilité de notre planète. Une expérience immersive où chaque projection devient un moment de partage et d'émerveillement.</p>
         </div>
@@ -99,7 +98,7 @@
         @if ($loop->first)
         <div class="col-span-full bg-blue-100 rounded-lg p-8 flex flex-col gap-8 justify-end">
             <div class="overflow-hidden" x-data="{ shown: false }" x-intersect="shown = true">
-                <h1 class="text-[clamp(3.5rem,7vw,7vw)] leading-[0.9] tracking-tight duration-1000 delay-300" x-bind:class="shown ? 'translate-y-none' : '-translate-y-full'">Le Cycle Découverte</h1>
+                <h1 class="text-[clamp(3.5rem,7vw,7vw)] leading-[0.9] tracking-tight duration-1000 delay-300 py-2" x-bind:class="shown ? 'translate-y-none' : '-translate-y-full'">Le Cycle Découverte</h1>
             </div>
             <p class="leading-relaxed max-w-xl">Le Cycle Découverte ouvre la porte à de nouvelles voix, de nouveaux regards sur le monde. Des explorateurs d'aujourd'hui, curieux, engagés, qui racontent leur époque et leurs chemins singuliers. Des histoires courtes mais intenses, pour éveiller la curiosité et donner envie d'aller plus loin.</p>
         </div>
