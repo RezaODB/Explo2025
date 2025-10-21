@@ -6,7 +6,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        @livewireStyles
     </head>
     <body class="text-stone-900">
         <header class="border-b border-stone-900 pt-4 sticky top-0 bg-white z-10">
@@ -59,5 +59,6 @@
                 </div>
             </div>
         </footer>
+        @livewireScripts
     </body>
 </html>
