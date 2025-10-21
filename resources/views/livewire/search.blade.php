@@ -32,25 +32,6 @@
                 </div>
             </div>
         </div>
-        <div class="cursor-pointer w-full pr-4 relative" x-data="{ open: false }" x-on:click="open = !open">
-            <label for="date" class="text-sm text-stone-500 uppercase block">Dates</label>
-            <div class="flex items-center justify-between mt-2">
-                <span>{{ $date === 'Toutes' ? 'Toutes' : \Carbon\Carbon::parse($date)->isoFormat('DD/MM/YY') }}</span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-500 duration-300" x-bind:class="open ? 'rotate-180' : 'rotate-0'"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
-            </div>
-            <div class="absolute z-10 top-8 p-2 left-0 bg-white text-sm border uppercase" x-show="open" x-transition x-on:click.outside="open = false">
-                <div class="columns-2 gap-4">
-                    <div class="p-2 {{ $date === 'Toutes' ? 'bg-cyan-200' : 'hover:bg-cyan-100' }}" wire:click="$set('date', 'Toutes')">Toutes les dates</div>
-                    @foreach ($dates as $screening)
-                    <div class="p-2 {{ $date === $screening ? 'bg-cyan-200' : 'hover:bg-cyan-100' }}" wire:click="$set('date', '{{ $screening }}')">{{ \Carbon\Carbon::parse($screening)->isoFormat('DD/MM/YY') }}</div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-        <button class="bg-stone-900 rounded text-white flex items-center justify-center gap-2 px-8 py-4 text-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg>
-            Rechercher
-        </button>
     </div>
 </section>
 
