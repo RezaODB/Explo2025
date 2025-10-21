@@ -35,7 +35,7 @@
         <div class="cursor-pointer w-full pr-4 relative" x-data="{ open: false }" x-on:click="open = !open">
             <label for="date" class="text-sm text-stone-500 uppercase block">Dates</label>
             <div class="flex items-center justify-between mt-2">
-                <span>{{ $date }}</span>
+                <span>{{ $date === 'Toutes' ? 'Toutes' : \Carbon\Carbon::parse($date)->isoFormat('DD/MM/YY') }}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-stone-500 duration-300" x-bind:class="open ? 'rotate-180' : 'rotate-0'"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 9l6 6l6 -6" /></svg>
             </div>
             <div class="absolute z-10 top-8 p-2 left-0 bg-white text-sm border uppercase" x-show="open" x-transition x-on:click.outside="open = false">
@@ -57,7 +57,7 @@
 <section class="mt-16 space-y-8 max-w-[1440px] mx-auto px-4">
     <h1 class="text-4xl sm:text-6xl border-b-4 border-stone-900">Prochaines séances</h1>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-        @foreach ($agendas->take(8) as $agenda)
+        @foreach ($seances->take(8) as $agenda)
         <div>
             <div class="border-b border-stone-900 pb-1">
                 <span class="text-5xl">{{ \Carbon\Carbon::parse($agenda->date)->isoFormat('DD') }}</span>

@@ -27,6 +27,13 @@ class Search extends Component
 
     public function render()
     {
-        return view('livewire.search');
+        $seances = collect($this->agendas)
+            ->where('city', $this->ville === 'Toutes' ? '!=' : '=', $this->ville)
+            ->where('date', $this->date === 'Toutes' ? '!=' : '=', $this->date)
+            ->where('film.title', $this->film === 'Tous' ? '!=' : '=', $this->film);
+
+        return view('livewire.search', [
+            'seances' => $seances
+        ]);
     }
 }
