@@ -2,7 +2,7 @@
 @section('content')
 
 {{-- HERO --}}
-<section class="flex flex-wrap lg:flex-nowrap bg-stone-900 gap-px">
+<section class="flex flex-wrap lg:flex-nowrap bg-stone-900 gap-px scroll-mt-24" id="hero" x-intersect="section = 'hero'">
     <div>
         <video src="{{ asset('teaser2025.mp4') }}" loop muted autoplay class="w-full h-full object-cover rounded-lg"></video>
     </div>
@@ -20,7 +20,7 @@
 @livewire('search')
 
 {{-- GRAND CYCLE --}}
-<section class="mt-16 space-y-8 max-w-[1440px] mx-auto px-4">
+<section class="mt-16 space-y-8 max-w-[1440px] mx-auto px-4 scroll-mt-24" id="films" x-intersect="section = 'films'">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px border border-stone-900 bg-stone-900">
         @foreach ($films->where('cycle', 'grand') as $film)
         @if ($loop->first)

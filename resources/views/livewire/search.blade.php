@@ -1,6 +1,6 @@
 <div>
 
-<section class="border-y border-stone-900 py-4">
+<section class="border-y border-stone-900 py-4 scroll-mt-24" id="agenda" x-intersect="section = 'agenda'">
     <div class="flex flex-col sm:flex-row justify-between gap-4 sm:divide-x divide-stone-900 divide-dotted max-w-[1440px] mx-auto px-4">
         <div class="cursor-pointer w-full pr-4 relative" x-data="{ open: false }" x-on:click="open = !open">
             <label for="film" class="text-sm text-stone-500 uppercase block">Films</label>
